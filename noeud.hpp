@@ -1,3 +1,5 @@
+#include <iostream>
+
 struct element
 {
 	char code;
@@ -14,7 +16,8 @@ class noeud
 			Noeud * ABR_D;
 			Noeud * pere;
 	public :
-			Noeud(element elem);
+			Noeud(element _elem);
+			Noeud(Noeud * n1, Noeud * n2);
 			~Noeud();
 			inline Noeud * g(){return ABR_G;}
 			inline Noeud * d(){return ABR_D;}
