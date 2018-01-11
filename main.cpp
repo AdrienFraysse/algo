@@ -35,7 +35,7 @@ void tri_map(tempMap &tmap, invMap &map)
 {
 	size_t taille = tmap.size();
 	for(size_t i=0; i<taille ; ++i)
-		map.insert(pair<size_t, char>(tmap.at(map[i]), tmap[i]));
+		map.insert(pair<size_t, char>(tmap.at(i), tmap[i]));
 }
 
 int main()
@@ -44,6 +44,7 @@ int main()
 	ifstream is1("autonomy.txt");
 	ifstream is2("swann10.txt");
 	ofstream os("test.txt");
+	ofstream os2("code_huff", ios::binary);
 	if(is1 && is2)
 	{
 		tempMap tMap;
@@ -64,7 +65,7 @@ int main()
 			//Etape 2 :
 			Noeud * tab[Map.size()];
 			for(size_t i=0; i<Map.size();++i)
-				tab[i]=creer_noeud(Map[i], Map.at(Map[i]));
+				tab[i]=creer_noeud(Map[i], Map.at(i));
 			
 			//Etape 3 à n :
 			do{
@@ -85,7 +86,15 @@ int main()
 						tab[i-2]=somme_noeud;
 				}
 			 }while(tab[1]!='\0');
-			 
+			 Arbre * arbre = new Arbre();
+			 arbre->setracine(tab[0]);
+			for(size_t i=0; i<Map.size(); ++i)
+			{
+				char c=Map.at(i);
+				string chemin;
+				os2<< Map.at(i)<< " " << trouve_chemin(c, arbre->getracine(), chemin)<<endl;
+			}
+				
 		}
 	}
 	else

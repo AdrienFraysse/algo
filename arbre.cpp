@@ -20,17 +20,17 @@ void affiche_croissant(Noeud * noeud)
 		affiche_croissant(noeud->d());
 }
 
-Noeud * trouve_noeud (size_t _valeur, Noeud*noeud)
+Noeud * trouve_noeud (char _valeur, Noeud*noeud)
 {
 	Noeud * position  = new Noeud();
 	position = nullptr;
 	
-	if (noeud->getelemp() == _valeur)
+	if (noeud->getelemc() == _valeur)
 	{
 		position = noeud;
 		return position;
 	}
-	if(noeud->getelemp()>_valeur)
+	if(noeud->getelemc()>_valeur)
 	{
 		if(!est_Vide(noeud->g()))
 		{
@@ -44,11 +44,10 @@ Noeud * trouve_noeud (size_t _valeur, Noeud*noeud)
 	return position;
 }
 
-string  trouve_chemin (size_t _valeur, Noeud*noeud, string chemin)
+string  trouve_chemin (char _valeur, Noeud*noeud, string chemin)
 {
 	char num;
-
-	if(noeud->getelemp()>_valeur)
+	if(noeud->getelemc()>_valeur)
 	{
 		if(!est_Vide(noeud->g()))
 		{

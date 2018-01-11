@@ -15,11 +15,11 @@
 		Arbre();
 		~Arbre();
 		inline void setracine(Noeud *n){racine=n;}
+		inline Noeud * getracine(){return racine;}
 		bool estRacine(Noeud * noeud);
 		Noeud * trouve_mot(string mot);
-		string  trouve_chemin (size_t _valeur, Noeud*noeud, string chemin);
 		void affiche_croissant(Noeud * noeud);
-		Noeud * trouve_noeud(size_t val, Noeud * noeud);
+		Noeud * trouve_noeud(char val, Noeud * noeud);
 		void supprime_feuille(size_t val, Noeud * noeud);
 		
 		
@@ -30,3 +30,4 @@
 	 
  };
 Noeud * addition_noeud(Noeud * n1, Noeud * n2);
+string  trouve_chemin (char _valeur, Noeud *noeud, string chemin);
