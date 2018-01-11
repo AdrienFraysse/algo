@@ -35,7 +35,7 @@ void tri_map(tempMap &tmap, invMap &map)
 {
 	size_t taille = tmap.size();
 	for(size_t i=0; i<taille ; ++i)
-		map.insert(pair<size_t, char>(tmap.at(i), tmap[i]));
+		map.insert(pair<size_t, char>(tmap.at(map[i]), tmap[i]));
 }
 
 int main()
@@ -43,6 +43,7 @@ int main()
 	charVector cVector;
 	ifstream is1("autonomy.txt");
 	ifstream is2("swann10.txt");
+	ofstream os("test.txt");
 	if(is1 && is2)
 	{
 		tempMap tMap;
@@ -56,13 +57,14 @@ int main()
 		//Ajoute tous les caractères dans une map (trié par ordre croissant) pour obtenir le caractère et son nombre d'occurence
 		compter_lettre(tMap, cVector);
 		tri_map(tMap, Map);
-		
+		for(invMap::iterator it = Map.begin(); it!=Map.end(); ++it )
+			os << it->first << " : " << it->second << endl;
 		if(Map.size()!=0)
 		{
 			//Etape 2 :
 			Noeud * tab[Map.size()];
 			for(size_t i=0; i<Map.size();++i)
-				tab[i]=creer_noeud(Map[i], Map.at(i));
+				tab[i]=creer_noeud(Map[i], Map.at(Map[i]));
 			
 			//Etape 3 à n :
 			do{

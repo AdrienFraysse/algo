@@ -29,22 +29,3 @@ Noeud * creer_noeud(size_t p, char c)
 	return noeud;
 }
 
-// Noeud operator+(Noeud *n){
-	// Noeud noeud = new Noeud()
-	// noeud->elem_cod=" ";
-	// noeud->elem.poids=this->elem.poids+n->elem.poids;
-	// noeud->ABR_G=this;
-	// noeud->ABR_D=n;
-	// this->pere=n;
-	// n->pere=noeud;
-	// return noeud;
-// }
-
-// Noeud operator=(Noeud *n){
-	// this->elem=n->elem;
-	// this->ABR_G=n->ABR_G;
-	// this->ABR_D=n->ABR_D;
-	// this->pere=n->pere;
-	// return this;
-// }
-
