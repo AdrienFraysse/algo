@@ -64,7 +64,7 @@ int main()
 			for(size_t i=0; i<Map.size();++i)
 				tab[i]=creer_noeud(Map[i], Map.at(i));
 			
-			//Etape 3 :
+			//Etape 3 à n :
 			do{
 				Noeud * somme_noeud = new Noeud;
 				somme_noeud=addition_noeud(tab[0], tab[1]);

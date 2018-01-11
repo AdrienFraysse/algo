@@ -18,7 +18,7 @@ Noeud::~Noeud()
 	delete pere;
 }
 
-Noeud * creer_noeud(char c, size_t p)
+Noeud * creer_noeud(size_t p, char c)
 {
 	Noeud * noeud = new Noeud;
 	noeud->setelemc(c);

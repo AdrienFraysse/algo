@@ -35,5 +35,5 @@ class Noeud
 			inline void setABR_D(Noeud * n){ABR_D=n;}
 
 };
-Noeud * creer_noeud(char c, size_t p);
+Noeud * creer_noeud(size_t p, char c);
 inline bool est_Vide(Noeud *n){bool b=false; if(n==nullptr)b=true; return b;}
