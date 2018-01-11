@@ -1,18 +1,18 @@
 GXX=g++
-CXXFLAGS=-Wall -pedantic -std=c++14
+CXXFLAGS=-Wall -std=c++11
 DEL=del
 
 .PHONY: all clean
 
-all: huff.exe 
+all: main.exe 
 
-.o : .cpp
-	$(GXX) -g $(CXXFLAGS)  -c .cpp
+main.o : main.cpp
+	$(GXX) -g $(CXXFLAGS)  -c main.cpp  
 	
-.exe : .o
-	$(GXX) -g $(CXXFLAGS)  -c 
+main.exe : main.o
+	$(GXX) -g $(CXXFLAGS)  -o main.exe main.o 
 
 	
 	
 clean:
-	$(DEL) *.o 
+	$(DEL) *.o main.exe
