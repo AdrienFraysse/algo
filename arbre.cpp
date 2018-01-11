@@ -3,52 +3,61 @@
 
 using namespace std;
 
-Arbre::Arbre(Noeud * racine)
-	
+Arbre::Arbre()
+	: racine(nullptr)
 {
 	
 }
+
+Arbre::~Arbre(){}
 
 void affiche_croissant(Noeud * noeud)
 {
-	if(!est_Vide(g(noeud)))
-		affiche_croissant(g(noeud));
-	cout << noeud->element-> valeur << endl;
-	if(!est_Vide(d(noeud)))
-		affiche_croissant(d(noeud));
+	if(!est_Vide(noeud->g()))
+		affiche_croissant(noeud->g());
+	cout << noeud->getelemp() << endl;
+	if(!est_Vide(noeud->d()))
+		affiche_croissant(noeud->d());
 }
 
-Noeud trouve_noeud (int valeur, Noeud*noeud)
+Noeud * trouve_noeud (size_t _valeur, Noeud*noeud)
 {
-	position * Noeud =NULL;
+	Noeud * position  = new Noeud;
+	position = nullptr;
 	
-	if (noeud->element->valeur = valeur)
+	if (noeud->getelemp() == _valeur)
 	{
 		position = noeud;
 		return position;
 	}
-	if(noeud->element->valeur>valeur)
+	if(noeud->getelemp()>_valeur)
 	{
-		if(!est_vide g(noeud))
+		if(!est_Vide(noeud->g()))
 		{
-			return trouve_noeud(int g(noeud));
+			return trouve_noeud(_valeur, noeud->g());
 		}
-		else if(!est vide d(noeud))
+		else if(!est_Vide(noeud->d()))
 		{
-			return trouve_noeud(int d(noeud));
+			return trouve_noeud(_valeur, noeud->d());
 		}
 	}
+	return position;
 }
- /*void supprime_feuille(int valeur, Noeud*noeud)
+ void supprime_feuille(int _valeur, Noeud *n)
  {
-	 Noeud*noeud;
-	 pere*noeud;
+	 Noeud *noeud;
+	 Noeud *pere;
 	 
-	 noeud = trouve_noeud (_valeur, noeud);
-	 
- }*/
+	 noeud = trouve_noeud (_valeur, n);
+	 if(noeud->estExterne())
+		 pere=noeud->noeud_parent();
+	 if(noeud->getelemp() > pere->getelemp())
+		 pere->setABR_G(nullptr);
+	 else if(noeud->getelemp() < pere->getelemp())
+		 pere->setABR_D(nullptr);
+ }
  
- void noeud::insertion(size_t elem)
+/*void insertion(size_t elem)
 {
   if(elem != getelement())
   {
@@ -67,6 +76,17 @@ Noeud trouve_noeud (int valeur, Noeud*noeud)
         fils_d->insertion(elem);
     }
   }
+}*/
+
+Noeud * addition_noeud(Noeud * n1, Noeud *n2)
+{	
+	Noeud * noeud = new Noeud;
+	noeud->setelemp(n1->getelemp()+n2->getelemp());
+	noeud->setABR_G(n1);
+	noeud->setABR_D(n2);
+	n1->set_noeud_parent(noeud);
+	n2->set_noeud_parent(noeud);
+	return noeud;
 }
  
  

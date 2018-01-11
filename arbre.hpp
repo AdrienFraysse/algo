@@ -8,23 +8,24 @@
  
  using namespace std; 
  
- Class Arbre {
+ class Arbre {
 	private:
 		Noeud * racine;
 	public : 
 		Arbre();
 		~Arbre();
-		Noeud racine(Arbre Abr);
+		inline void setracine(Noeud *n){racine=n;}
 		bool estRacine(Noeud * noeud);
 		trouve_mot(string mot);
 		void affiche_croissant(Noeud * noeud);
-		Noeud trouve_noeud(size_t val, Noeud * noeud);
+		Noeud * trouve_noeud(size_t val, Noeud * noeud);
 		void supprime_feuille(size_t val, Noeud * noeud);
-		void supprime_noeud_int(size_t val, Noeud * noeud);
+		
+		
 		
 	 private :
 	 
 	 Noeud recherche(string mot, Noeud * pere);
 	 
  };
- 
+Noeud * addition_noeud(Noeud * n1, Noeud * n2);

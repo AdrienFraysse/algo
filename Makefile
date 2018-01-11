@@ -6,11 +6,14 @@ DEL=del
 
 all: main.exe 
 
-main.o : main.cpp
-	$(GXX) -g $(CXXFLAGS)  -c main.cpp  
+
+%.o : %.cpp
+	$(GXX) -g $(CXXFLAGS)  -c $*.cpp  
 	
-main.exe : main.o
-	$(GXX) -g $(CXXFLAGS)  -o main.exe main.o 
+
+	
+main.exe : main.o arbre.o noeud.o
+	$(GXX) -g $(CXXFLAGS)  -o $@ $^
 
 	
 	
