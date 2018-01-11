@@ -20,7 +20,7 @@ Noeud::~Noeud()
 
 Noeud * creer_noeud(size_t p, char c)
 {
-	Noeud * noeud = new Noeud;
+	Noeud * noeud = new Noeud();
 	noeud->setelemc(c);
 	noeud->setelemp(p);
 	noeud->setABR_G(nullptr);

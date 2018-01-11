@@ -16,7 +16,8 @@
 		~Arbre();
 		inline void setracine(Noeud *n){racine=n;}
 		bool estRacine(Noeud * noeud);
-		trouve_mot(string mot);
+		Noeud * trouve_mot(string mot);
+		string  trouve_chemin (size_t _valeur, Noeud*noeud, string chemin);
 		void affiche_croissant(Noeud * noeud);
 		Noeud * trouve_noeud(size_t val, Noeud * noeud);
 		void supprime_feuille(size_t val, Noeud * noeud);

@@ -22,7 +22,7 @@ void affiche_croissant(Noeud * noeud)
 
 Noeud * trouve_noeud (size_t _valeur, Noeud*noeud)
 {
-	Noeud * position  = new Noeud;
+	Noeud * position  = new Noeud();
 	position = nullptr;
 	
 	if (noeud->getelemp() == _valeur)
@@ -43,6 +43,29 @@ Noeud * trouve_noeud (size_t _valeur, Noeud*noeud)
 	}
 	return position;
 }
+
+string  trouve_chemin (size_t _valeur, Noeud*noeud, string chemin)
+{
+	char num;
+
+	if(noeud->getelemp()>_valeur)
+	{
+		if(!est_Vide(noeud->g()))
+		{
+			num = 0;
+			chemin = chemin + num;
+			return trouve_chemin(_valeur, noeud->g(), chemin);
+		}
+		else if(!est_Vide(noeud->d()))
+		{
+			num = 1;
+			chemin = chemin + num; 
+			return trouve_chemin(_valeur, noeud->d(), chemin);
+		}
+	}
+	return chemin;
+}
+
  void supprime_feuille(int _valeur, Noeud *n)
  {
 	 Noeud *noeud;
@@ -80,7 +103,7 @@ Noeud * trouve_noeud (size_t _valeur, Noeud*noeud)
 
 Noeud * addition_noeud(Noeud * n1, Noeud *n2)
 {	
-	Noeud * noeud = new Noeud;
+	Noeud * noeud = new Noeud();
 	noeud->setelemp(n1->getelemp()+n2->getelemp());
 	noeud->setABR_G(n1);
 	noeud->setABR_D(n2);
@@ -88,6 +111,5 @@ Noeud * addition_noeud(Noeud * n1, Noeud *n2)
 	n2->set_noeud_parent(noeud);
 	return noeud;
 }
- 
  
  

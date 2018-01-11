@@ -68,7 +68,7 @@ int main()
 			
 			//Etape 3 à n :
 			do{
-				Noeud * somme_noeud = new Noeud;
+				Noeud * somme_noeud = new Noeud();
 				somme_noeud=addition_noeud(tab[0], tab[1]);
 				Noeud *temp[Map.size()];
 				//Copie notre tableau de base dans un tableau temporaire
@@ -85,6 +85,7 @@ int main()
 						tab[i-2]=somme_noeud;
 				}
 			 }while(tab[1]!='\0');
+			 
 		}
 	}
 	else
